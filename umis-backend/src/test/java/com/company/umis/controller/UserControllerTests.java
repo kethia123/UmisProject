@@ -35,7 +35,7 @@ public class UserControllerTests {
     private ObjectMapper objectMapper;
 
     @Test
-    public void givenUserObject_whenCreateUser_thenReturnSavedUser() throws Exception{
+    public void ReturnSavedUser_Success() throws Exception{
 
         User user = User.builder()
                 .name("ketty")
@@ -62,7 +62,7 @@ public class UserControllerTests {
 
     // Test for Get All users REST API
     @Test
-    public void givenListOfUsers_whenGettingAllUsers_thenReturnListOfUsers() throws Exception{
+    public void ReturnListOfUsers_Success() throws Exception{
 
         List<User> listOfUsers = new ArrayList<>();
         listOfUsers.add(User.builder().name("ketty").username("whiteKet").email("ketty@gmail.com").build());
@@ -80,7 +80,7 @@ public class UserControllerTests {
 
     // Test for GET user by id REST API (valid user id)
     @Test
-    public void givenUserId_whenGettingUserById_thenReturnUserObject() throws Exception{
+    public void ReturnUserObject_Success() throws Exception{
 
         long userId = 1L;
         User user = User.builder()
@@ -102,7 +102,7 @@ public class UserControllerTests {
 
     // Test for GET user by id REST API (invalid id)
     @Test
-    public void givenInvalidUserId_whenGetUserById_thenReturnEmpty() throws Exception{
+    public void ReturnEmpty() throws Exception{
         // given - precondition or setup
         long userId = 1L;
         User user = User.builder()
@@ -121,7 +121,7 @@ public class UserControllerTests {
 
     // Test for update user REST API - positive scenario
     @Test
-    public void givenUpdatedUser_whenUpdateUser_thenReturnUpdateUserObject() throws Exception{
+    public void ReturnUpdateUserObject_Success() throws Exception{
         // given - precondition or setup
         long userId = 1L;
         User savedUser = User.builder()
@@ -152,7 +152,7 @@ public class UserControllerTests {
 
     // Test for update user REST API - negative scenario
     @Test
-    public void givenUpdatedUser_whenUpdateUser_thenReturn404() throws Exception{
+    public void Return404_FailingTest() throws Exception{
 
         long userId = 1L;
         User savedUser = User.builder()
@@ -180,7 +180,7 @@ public class UserControllerTests {
 
     // Test for delete user REST API
     @Test
-    public void givenUserId_whenDeleteUser_thenReturn200() throws Exception{
+    public void Return200_Success() throws Exception{
 
         long userId = 1L;
         willDoNothing().given(userService).deleteUser(userId);

@@ -29,9 +29,6 @@ public class UserServiceTests {
     @Autowired
     private ObjectMapper objectMapper;
 
-//    User user=new User(2L,"Kethia","ketia","ketia@gmail.com");
-
-
     @Test
         public void getAll_Success() throws Exception{
 
@@ -56,24 +53,24 @@ public class UserServiceTests {
 
         }
         
-        @Test
-        public void getOne_404() throws Exception{
-
-            User user = User.builder()
-                    .name("kethia")
-                    .username("Kent")
-                    .email("kent@gmail.com")
-                    .build();
-
-            when(userService.getUserById(user.getId())).thenReturn(Optional.ofNullable(user));
-            MockHttpServletRequestBuilder requestBuilder=MockMvcRequestBuilders
-                    .get("/user/{id}")
-                    .accept(MediaType.APPLICATION_JSON);
-            MvcResult result = mockMvc
-                    .perform(requestBuilder)
-                    .andExpect(status().isNotFound())
-                    .andExpect(content().json("{\"status\":false,\"message\":\"Item not found\"}"))
-                    .andReturn();
-        }
+//        @Test
+//        public void getOne_404() throws Exception{
+//
+//            User user = User.builder()
+//                    .name("kethia")
+//                    .username("Kent")
+//                    .email("kent@gmail.com")
+//                    .build();
+//
+//            when(userService.getUserById(user.getId())).thenReturn(Optional.ofNullable(user));
+//            MockHttpServletRequestBuilder requestBuilder=MockMvcRequestBuilders
+//                    .get("/user/{id}")
+//                    .accept(MediaType.APPLICATION_JSON);
+//            MvcResult result = mockMvc
+//                    .perform(requestBuilder)
+//                    .andExpect(status().isNotFound())
+//                    .andExpect(content().json("{\"status\":false,\"message\":\"Item not found\"}"))
+//                    .andReturn();
+//        }
     }
 

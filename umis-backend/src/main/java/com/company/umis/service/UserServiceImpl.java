@@ -33,7 +33,13 @@ public class UserServiceImpl extends UserService {
 
     @Override
     public Optional<User> getUserById(long id) {
-        return userRepository.findById(id);
+//        return userRepository.findById(id);
+        Optional<User> findById = userRepository.findById(id);
+        if(findById.isPresent()) {
+            User user = findById.get();
+            return Optional.of(user);
+        }
+        return null;
     }
 
     @Override

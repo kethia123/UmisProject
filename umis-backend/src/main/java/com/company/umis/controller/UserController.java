@@ -1,6 +1,7 @@
 package com.company.umis.controller;
 
 import com.company.umis.model.User;
+import com.company.umis.repository.UserRepository;
 import com.company.umis.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -15,9 +16,12 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    public UserController(UserService userService) {
-        this.userService = userService;
-    }
+    @Autowired
+    private UserRepository userRepository;
+
+//    public UserController(UserService userService) {
+//        this.userService = userService;
+//    }
 
     @PostMapping("/user")
     @ResponseStatus(HttpStatus.CREATED)
